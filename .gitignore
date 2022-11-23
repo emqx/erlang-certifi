@@ -20,3 +20,4 @@ ebin/
 edoc
 doc/*
 !doc/overview.edoc
+/rebar3

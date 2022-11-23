@@ -5,7 +5,7 @@ parse_transform(Forms, _Opts) ->
   [replace_cacerts(Form) || Form <- Forms].
 
 replace_cacerts({function, Ann, cacerts, 0, [_]}) ->
-  {ok, Binary} = file:read_file(cert_file() ),
+  {ok, Binary} = file:read_file(cert_file()),
   Pems = public_key:pem_decode(Binary),
   Cacerts = [Der || {'Certificate', Der, _} <- Pems],
   Body = lists:foldl(fun(Cert, Acc) ->
@@ -21,7 +21,7 @@ cert_file() ->
   AppDir = filename:dirname(
              filename:dirname(code:which(?MODULE))
             ),
-  filename:join([AppDir, "priv", "cacerts.pem"]).
+  filename:join([AppDir, "data", "cacerts.pem"]).
 
 -spec cert_to_bin_ast(Cert) -> Result when
 	Cert :: binary(),
