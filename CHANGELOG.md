@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.17.0-emqx-1 (2026-10-22)
+
+- Update the CA bundle to the Mozilla set as of 2026-10-20 (118 certificates).
+  Drops `emSign Root CA - C1`, `emSign ECC Root CA - C3`, `emSign ECC Root CA - G3`,
+  `SecureSign Root CA12` and `Atos TrustedRoot 2011`. Adds `SECOM TLS RSA Root CA 2024`,
+  `SECOM TLS ECC Root CA 2024`, `Telia RSA TLS Root CA v3` and `Telia EC TLS Root CA v3`.
+  The set matches https://github.com/certifi/erlang-certifi/pull/56.
+- Take the bundle from https://curl.se/ca/cacert.pem. The previous source, mkcert.org, no
+  longer tracks Mozilla.
+
 ## 2.17.0 (2026-06-05)
 
 - Update CA bundle to the Mozilla set as of May 2026 (119 certificates).
